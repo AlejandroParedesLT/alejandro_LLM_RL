@@ -1,0 +1,15 @@
+grpo_venv
+grpo_trainer_lora_model
+unsloth_compiled_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info
+*.egg
+wandb
+*.json
+outputs
+wandb
+.env
