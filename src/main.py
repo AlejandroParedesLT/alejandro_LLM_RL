@@ -37,17 +37,26 @@ def check_nvidia_smi():
 import os
 
 
-def init_wandb_training(training_args):
+# def init_wandb_training(training_args):
+#     """
+#     Helper function for setting up Weights & Biases logging tools.
+#     """
+#     if training_args.wandb_entity is not None:
+#         os.environ["WANDB_ENTITY"] = training_args.wandb_entity
+#     if training_args.wandb_project is not None:
+#         os.environ["WANDB_PROJECT"] = training_args.wandb_project
+#     if training_args.wandb_run_group is not None:
+#         os.environ["WANDB_RUN_GROUP"] = training_args.wandb_run_group
+
+
+
+def init_wandb_training():
     """
     Helper function for setting up Weights & Biases logging tools.
     """
-    if training_args.wandb_entity is not None:
-        os.environ["WANDB_ENTITY"] = training_args.wandb_entity
-    if training_args.wandb_project is not None:
-        os.environ["WANDB_PROJECT"] = training_args.wandb_project
-    if training_args.wandb_run_group is not None:
-        os.environ["WANDB_RUN_GROUP"] = training_args.wandb_run_group
-
+    os.environ["WANDB_ENTITY"] = "alejandro-paredeslatorre-duke-university"
+    os.environ["WANDB_PROJECT"] = "qwen-cot-training-qwen2.5-0.5B-v2"
+    os.environ["WANDB_RUN_GROUP"] = "qwen1.experiment_2"
 
 #def main(script_args, training_args, model_args):
 def main():
@@ -97,9 +106,12 @@ def main():
     # tokenizer_fixed.truncation_side = "left"
     # tokenizer_fixed.truncation = True
     # tokenizer_fixed.model_max_length = max_seq_length
-
+    init_wandb_training()
+    #os.environ["HF_HOME"] = "/home/users/ap794/.cache/huggingface"
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name = "meta-llama/meta-Llama-3.1-8B-Instruct",
+        #model_name = '/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-0.5B-Instruct/e10-bs1-lr1e-05-G2-N2-NN1/8000',
+        #model_name = '/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000',
+        model_name = "/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/kd/Qwen2.5-0.5B-to-Qwen2.5-1.5B-sft/e10-bs8-lr1e-05-G1-N2-NN1-kd0.5/4000",
         max_seq_length = max_seq_length,
         load_in_4bit = True, # False for LoRA 16bit
         fast_inference = True, # Enable vLLM fast inference
@@ -136,8 +148,8 @@ def main():
         max_prompt_length = max_prompt_length,
         max_completion_length = max_seq_length - max_prompt_length,
         # num_train_epochs = 1, # Set to 1 for a full training run
-        max_steps = 250,
-        save_steps = 250,
+        max_steps = 5000,
+        save_steps = 500,
         max_grad_norm = 0.1,
         report_to = "wandb", # Can use Weights & Biases
         output_dir = "outputs",

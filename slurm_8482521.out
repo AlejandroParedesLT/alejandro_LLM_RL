@@ -1,0 +1,68 @@
+usage: huggingface-cli <command> [<args>]
+huggingface-cli: error: unrecognized arguments: false
+[❌] Failed to log into Hugging Face
+[✅] Successfully logged into Weights & Biases
+/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+Unsloth: Failed to patch Gemma3ForConditionalGeneration.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+INFO 04-16 10:58:33 [__init__.py:239] Automatically detected platform cuda.
+Running GRPO script
+Wed Apr 16 10:58:37 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:CA:00.0 Off |                  Off |
+| 30%   31C    P2             65W /  300W |     267MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   2662370      C   python                                        260MiB |
++-----------------------------------------------------------------------------------------+
+
+Traceback (most recent call last):
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/api/models/unsloth/meta-llama-3.1-8b-instruct-unsloth-bnb-4bit
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 223, in <module>
+    main()
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 101, in main
+    model, tokenizer = FastLanguageModel.from_pretrained(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/unsloth/models/loader.py", line 194, in from_pretrained
+    files = HfFileSystem(token = token).glob(f"{model_name}/*.json")
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/hf_file_system.py", line 520, in glob
+    path = self.resolve_path(path, revision=kwargs.get("revision")).unresolve()
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/hf_file_system.py", line 209, in resolve_path
+    repo_and_revision_exist, err = self._repo_and_revision_exist(repo_type, repo_id, revision)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/hf_file_system.py", line 125, in _repo_and_revision_exist
+    self._api.repo_info(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/hf_api.py", line 2807, in repo_info
+    return method(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/hf_api.py", line 2592, in model_info
+    hf_raise_for_status(r)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 482, in hf_raise_for_status
+    raise _format(HfHubHTTPError, str(e), response) from e
+huggingface_hub.errors.HfHubHTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/api/models/unsloth/meta-llama-3.1-8b-instruct-unsloth-bnb-4bit (Request ID: Root=1-67ffc59d-0a4195e7403638c95d6aa2e9;69fb0b9e-ef9f-4d96-9179-dbb4b4308ccb)
+
+Invalid credentials in Authorization header
+srun: error: compsci-cluster-fitz-05: task 0: Exited with exit code 1

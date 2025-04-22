@@ -1,31 +1,40 @@
 #!/bin/bash
-#SBATCH -t 5:00:00  # time requested in hour:minute:second
-#SBATCH --mem=128G
+#SBATCH -t 15:00:00  # time requested in hour:minute:second
+#SBATCH --mem=64G
 #SBATCH --gres=gpu:1
 #SBATCH --constraint=a6000 #24 a6000, v100, a5000
 #SBATCH --partition=compsci-gpu
 #SBATCH --output=slurm_%j.out
 
-# Load environment variables from .env
-set -a
-source $HOME/final_project_distillLLM/open-r1/.env
-set +a
 
-# Login to Hugging Face CLI without affecting Git
-echo "$HF_TOKEN" | huggingface-cli login --token --no-git
-if [ $? -eq 0 ]; then
-  echo "[✅] Successfully logged into Hugging Face"
-else
-  echo "[❌] Failed to log into Hugging Face"
-fi
 
-# Login to wandb
-wandb login --relogin "$WANDB_API_KEY"
-if [ $? -eq 0 ]; then
-  echo "[✅] Successfully logged into Weights & Biases"
-else
-  echo "[❌] Failed to log into Weights & Biases"
-fi
+# # Load environment variables from .env
+# set -a
+# source $HOME/final_project_distillLLM/open-r1/.env
+# set +a
+
+# # Activate virtual environment
+# export VENV_DIR="$HOME/final_project_distillLLM/aleGRPO/grpo_venv"
+# source "$VENV_DIR/bin/activate"
+
+# # Login to Hugging Face CLI without affecting Git
+# echo "$HF_TOKEN" | huggingface-cli login --token
+# if [ $? -eq 0 ]; then
+#   echo "[✅] Successfully logged into Hugging Face"
+# else
+#   echo "[❌] Failed to log into Hugging Face"
+# fi
+
+# # Login to wandb
+# wandb login --relogin "$WANDB_API_KEY"
+# if [ $? -eq 0 ]; then
+#   echo "[✅] Successfully logged into Weights & Biases"
+# else
+#   echo "[❌] Failed to log into Weights & Biases"
+# fi
+
+
+
 
 export HF_HOME=/dev/shm/hf-home
 export TRANSFORMERS_CACHE=/dev/shm/hf-cache
@@ -41,4 +50,6 @@ export VENV_DIR=$HOME/final_project_distillLLM/aleGRPO/grpo_venv
 #     src/open_r1/grpo.py --config recipes/DeepSeek-R1-Distill-Qwen-1.5B/grpo/config_demo.yaml"
 
 
-srun bash -c "source $VENV_DIR/bin/activate && python src/main.py"
+#srun bash -c "source $VENV_DIR/bin/activate && python src/main.py"
+#srun bash -c "source \$HOME/final_project_distillLLM/minillm/.env && source \$VENV_DIR/bin/activate && huggingface-cli login --token \$HF_TOKEN && python src/main.py"
+srun bash -c "source \$HOME/final_project_distillLLM/aleGRPO/.env && source \$VENV_DIR/bin/activate && huggingface-cli login --token \$HF_TOKEN && wandb login \$WANDB_TOKEN && python src/main.py"

@@ -1,0 +1,132 @@
+The token has not been saved to the git credentials helper. Pass `add_to_git_credential=True` in this function directly or `--add-to-git-credential` if using via `huggingface-cli` if you want to set the git credential as well.
+Token is valid (permission: fineGrained).
+The token `llama3` has been saved to /dev/shm/hf-home/stored_tokens
+Your token has been saved to /dev/shm/hf-home/token
+Login successful.
+The current active token is: `llama3`
+/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+Unsloth: Failed to patch Gemma3ForConditionalGeneration.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+INFO 04-20 11:57:34 [__init__.py:239] Automatically detected platform cuda.
+[WARNING|logging.py:328] 2025-04-20 12:05:16,083 >> Unsloth 2025.3.19 patched 28 layers with 28 QKV layers, 28 O layers and 28 MLP layers.
+Running GRPO script
+Sun Apr 20 11:57:41 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla P100-PCIE-12GB           Off |   00000000:02:00.0 Off |                    0 |
+| N/A   36C    P0             31W /  250W |     257MiB /  12288MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   1638442      C   python                                        254MiB |
++-----------------------------------------------------------------------------------------+
+
+Unsloth: vLLM does not work on older GPUs - will switch to Unsloth inference!
+==((====))==  Unsloth 2025.3.19: Fast Qwen2 patching. Transformers: 4.51.3. vLLM: 0.8.2.
+   \\   /|    Tesla P100-PCIE-12GB. Num GPUs = 1. Max memory: 11.901 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.6.0+cu124. CUDA: 6.0. CUDA Toolkit: 12.4. Triton: 3.2.0
+\        /    Bfloat16 = FALSE. FA [Xformers = 0.0.29.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000 does not have a padding token! Will use pad_token = <|vision_pad|>.
+Sun Apr 20 12:05:13 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla P100-PCIE-12GB           Off |   00000000:02:00.0 Off |                    0 |
+| N/A   37C    P0             32W /  250W |    1481MiB /  12288MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   1638442      C   python                                       1478MiB |
++-----------------------------------------------------------------------------------------+
+
+Sun Apr 20 12:05:17 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla P100-PCIE-12GB           Off |   00000000:02:00.0 Off |                    0 |
+| N/A   37C    P0             32W /  250W |    1587MiB /  12288MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   1638442      C   python                                       1584MiB |
++-----------------------------------------------------------------------------------------+
+
+Unsloth: We now expect `per_device_train_batch_size` to be a multiple of `num_generations`.
+We will change the batch size of 1 to the `num_generations` of 6
+Traceback (most recent call last):
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 236, in <module>
+    main()
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 172, in main
+    train_dataset=getCodingDataset("train")
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/utils/dataset.py", line 77, in getCodingDataset
+    return get_coding_nt(partition)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/utils/dataset.py", line 34, in get_coding_nt
+    data = load_dataset('open-r1/codeforces-cots', 'solutions')[split] # type: ignore
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/datasets/load.py", line 2062, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/datasets/load.py", line 1782, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/datasets/load.py", line 1664, in dataset_module_factory
+    raise e1 from None
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/datasets/load.py", line 1534, in dataset_module_factory
+    dataset_readme_path = api.hf_hub_download(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/hf_api.py", line 5475, in hf_hub_download
+    return hf_hub_download(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 961, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1068, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1596, in _raise_on_head_call_error
+    raise head_call_error
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1484, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1401, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 285, in _request_wrapper
+    response = _request_wrapper(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 309, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 482, in hf_raise_for_status
+    raise _format(HfHubHTTPError, str(e), response) from e
+huggingface_hub.errors.HfHubHTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/datasets/open-r1/codeforces-cots/resolve/main/README.md (Request ID: Root=1-68051b3d-17b40a8e6d4d42ec1252c1b9;cfc04330-0140-409c-8595-c938a5c39a6b)
+
+Invalid credentials in Authorization header
+srun: error: linux41: task 0: Exited with exit code 1

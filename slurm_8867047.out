@@ -1,0 +1,229 @@
+The token has not been saved to the git credentials helper. Pass `add_to_git_credential=True` in this function directly or `--add-to-git-credential` if using via `huggingface-cli` if you want to set the git credential as well.
+Token is valid (permission: fineGrained).
+The token `llama3` has been saved to /dev/shm/hf-home/stored_tokens
+Your token has been saved to /dev/shm/hf-home/token
+Login successful.
+The current active token is: `llama3`
+wandb: Appending key for api.wandb.ai to your netrc file: /home/users/ap794/.netrc
+wandb: W&B API key is configured. Use `wandb login --relogin` to force relogin
+/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+Unsloth: Failed to patch Gemma3ForConditionalGeneration.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+INFO 04-20 16:23:06 [__init__.py:239] Automatically detected platform cuda.
+Running GRPO script
+Sun Apr 20 16:23:11 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A5000               Off |   00000000:17:00.0 Off |                  Off |
+| 30%   23C    P2             57W /  230W |     209MiB /  24564MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   2463496      C   python                                        202MiB |
++-----------------------------------------------------------------------------------------+
+
+==((====))==  Unsloth 2025.3.19: Fast Qwen2 patching. Transformers: 4.51.3. vLLM: 0.8.2.
+   \\   /|    NVIDIA RTX A5000. Num GPUs = 1. Max memory: 23.673 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.6.0+cu124. CUDA: 8.6. CUDA Toolkit: 12.4. Triton: 3.2.0
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.29.post2. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: vLLM loading /home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000 with actual GPU utilization = 59.38%
+Unsloth: Your GPU has CUDA compute capability 8.6 with VRAM = 23.67 GB.
+Unsloth: Using conservativeness = 1.0. Chunked prefill tokens = 2042. Num Sequences = 224.
+Unsloth: vLLM's KV Cache can use up to 11.11 GB. Also swap space = 6 GB.
+WARNING 04-20 16:23:12 [config.py:2614] Casting torch.float16 to torch.bfloat16.
+INFO 04-20 16:23:25 [config.py:585] This model supports multiple tasks: {'generate', 'score', 'classify', 'reward', 'embed'}. Defaulting to 'generate'.
+WARNING 04-20 16:23:25 [arg_utils.py:1854] --quantization bitsandbytes is not supported by the V1 Engine. Falling back to V0. 
+Unsloth: vLLM Bitsandbytes config using kwargs = {'load_in_8bit': False, 'load_in_4bit': True, 'bnb_4bit_compute_dtype': 'bfloat16', 'bnb_4bit_quant_storage': 'uint8', 'bnb_4bit_quant_type': 'fp4', 'bnb_4bit_use_double_quant': False, 'llm_int8_enable_fp32_cpu_offload': False, 'llm_int8_has_fp16_weight': False, 'llm_int8_skip_modules': [], 'llm_int8_threshold': 6.0}
+INFO 04-20 16:23:26 [llm_engine.py:241] Initializing a V0 LLM engine (v0.8.2) with config: model='/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000', speculative_config=None, tokenizer='/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=2042, download_dir=None, load_format=bitsandbytes, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=bitsandbytes, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda:0, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"level":0,"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":224}, use_cached_outputs=False, 
+INFO 04-20 16:23:27 [cuda.py:291] Using Flash Attention backend.
+INFO 04-20 16:23:27 [parallel_state.py:954] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 04-20 16:23:27 [model_runner.py:1110] Starting to load model /home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000...
+INFO 04-20 16:23:27 [loader.py:1155] Loading weights with BitsAndBytes quantization. May take a while ...
+Loading pt checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading pt checkpoint shards: 100% Completed | 1/1 [00:14<00:00, 14.20s/it]
+Loading pt checkpoint shards: 100% Completed | 1/1 [00:14<00:00, 14.20s/it]
+
+INFO 04-20 16:23:42 [punica_selector.py:18] Using PunicaWrapperGPU.
+INFO 04-20 16:23:42 [model_runner.py:1146] Model loading took 1.1443 GB and 14.618849 seconds
+INFO 04-20 16:23:45 [worker.py:267] Memory profiling takes 2.19 seconds
+INFO 04-20 16:23:45 [worker.py:267] the current vLLM instance can use total_gpu_memory (23.67GiB) x gpu_memory_utilization (0.59) = 14.06GiB
+INFO 04-20 16:23:45 [worker.py:267] model weights take 1.14GiB; non_torch_memory takes 0.05GiB; PyTorch activation peak memory takes 1.23GiB; the rest of the memory reserved for KV Cache is 11.63GiB.
+INFO 04-20 16:23:45 [executor_base.py:111] # cuda blocks: 27219, # CPU blocks: 14043
+INFO 04-20 16:23:45 [executor_base.py:116] Maximum concurrency for 2042 tokens per request: 213.27x
+INFO 04-20 16:23:48 [model_runner.py:1442] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+Capturing CUDA graph shapes:   0%|          | 0/31 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 1/31 [00:00<00:23,  1.28it/s]Capturing CUDA graph shapes:   6%|▋         | 2/31 [00:01<00:20,  1.44it/s]Capturing CUDA graph shapes:  10%|▉         | 3/31 [00:02<00:18,  1.49it/s]Capturing CUDA graph shapes:  13%|█▎        | 4/31 [00:02<00:17,  1.51it/s]Capturing CUDA graph shapes:  16%|█▌        | 5/31 [00:03<00:16,  1.53it/s]Capturing CUDA graph shapes:  19%|█▉        | 6/31 [00:03<00:16,  1.53it/s]Capturing CUDA graph shapes:  23%|██▎       | 7/31 [00:04<00:15,  1.54it/s]Capturing CUDA graph shapes:  26%|██▌       | 8/31 [00:05<00:14,  1.55it/s]Capturing CUDA graph shapes:  29%|██▉       | 9/31 [00:05<00:14,  1.55it/s]Capturing CUDA graph shapes:  32%|███▏      | 10/31 [00:06<00:13,  1.55it/s]Capturing CUDA graph shapes:  35%|███▌      | 11/31 [00:07<00:12,  1.54it/s]Capturing CUDA graph shapes:  39%|███▊      | 12/31 [00:07<00:12,  1.54it/s]Capturing CUDA graph shapes:  42%|████▏     | 13/31 [00:08<00:11,  1.55it/s]Capturing CUDA graph shapes:  45%|████▌     | 14/31 [00:09<00:11,  1.53it/s]Capturing CUDA graph shapes:  48%|████▊     | 15/31 [00:09<00:10,  1.51it/s]Capturing CUDA graph shapes:  52%|█████▏    | 16/31 [00:10<00:09,  1.51it/s]Capturing CUDA graph shapes:  55%|█████▍    | 17/31 [00:11<00:09,  1.52it/s]Capturing CUDA graph shapes:  58%|█████▊    | 18/31 [00:11<00:08,  1.50it/s]Capturing CUDA graph shapes:  61%|██████▏   | 19/31 [00:12<00:07,  1.51it/s]Capturing CUDA graph shapes:  65%|██████▍   | 20/31 [00:13<00:07,  1.52it/s]Capturing CUDA graph shapes:  68%|██████▊   | 21/31 [00:13<00:06,  1.52it/s]Capturing CUDA graph shapes:  71%|███████   | 22/31 [00:14<00:05,  1.52it/s]Capturing CUDA graph shapes:  74%|███████▍  | 23/31 [00:15<00:05,  1.52it/s]Capturing CUDA graph shapes:  77%|███████▋  | 24/31 [00:15<00:04,  1.52it/s]Capturing CUDA graph shapes:  81%|████████  | 25/31 [00:16<00:03,  1.53it/s]Capturing CUDA graph shapes:  84%|████████▍ | 26/31 [00:17<00:03,  1.52it/s]Capturing CUDA graph shapes:  87%|████████▋ | 27/31 [00:17<00:02,  1.52it/s]Capturing CUDA graph shapes:  90%|█████████ | 28/31 [00:18<00:01,  1.52it/s]Capturing CUDA graph shapes:  94%|█████████▎| 29/31 [00:19<00:01,  1.53it/s]Capturing CUDA graph shapes:  97%|█████████▋| 30/31 [00:19<00:00,  1.53it/s]Capturing CUDA graph shapes: 100%|██████████| 31/31 [00:20<00:00,  1.50it/s]Capturing CUDA graph shapes: 100%|██████████| 31/31 [00:20<00:00,  1.52it/s]
+INFO 04-20 16:24:08 [model_runner.py:1570] Graph capturing finished in 20 secs, took 0.60 GiB
+INFO 04-20 16:24:08 [llm_engine.py:447] init engine (profile, create kv cache, warmup model) took 26.39 seconds
+[WARNING|logging.py:328] 2025-04-20 16:24:17,143 >> Unsloth 2025.3.19 patched 28 layers with 28 QKV layers, 28 O layers and 28 MLP layers.
+/home/users/ap794/final_project_distillLLM/minillm/results/qwen2.5/train/sft/qwen2.5-1.5B-Instruct/e10-bs1-lr1e-05-G2-N4-NN1/8000 does not have a padding token! Will use pad_token = <|vision_pad|>.
+Sun Apr 20 16:24:14 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A5000               Off |   00000000:17:00.0 Off |                  Off |
+| 30%   26C    P2             57W /  230W |   14241MiB /  24564MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   2463496      C   python                                      14220MiB |
++-----------------------------------------------------------------------------------------+
+
+Sun Apr 20 16:24:19 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A5000               Off |   00000000:17:00.0 Off |                  Off |
+| 30%   26C    P2             57W /  230W |   14351MiB /  24564MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   2463496      C   python                                      14330MiB |
++-----------------------------------------------------------------------------------------+
+
+Unsloth: We now expect `per_device_train_batch_size` to be a multiple of `num_generations`.
+We will change the batch size of 1 to the `num_generations` of 6
+Generating train split:   0%|          | 0/47780 [00:00<?, ? examples/s]Generating train split:   2%|▏         | 1000/47780 [00:00<00:25, 1860.54 examples/s]Generating train split:   4%|▍         | 2000/47780 [00:00<00:17, 2611.89 examples/s]Generating train split:   6%|▋         | 3000/47780 [00:01<00:15, 2835.02 examples/s]Generating train split:   8%|▊         | 4000/47780 [00:01<00:12, 3609.71 examples/s]Generating train split:  12%|█▏        | 5778/47780 [00:01<00:12, 3376.94 examples/s]Generating train split:  14%|█▍        | 6778/47780 [00:02<00:11, 3519.52 examples/s]Generating train split:  16%|█▋        | 7778/47780 [00:02<00:11, 3609.14 examples/s]Generating train split:  18%|█▊        | 8778/47780 [00:02<00:10, 3845.90 examples/s]Generating train split:  22%|██▏       | 10556/47780 [00:03<00:10, 3515.96 examples/s]Generating train split:  24%|██▍       | 11556/47780 [00:03<00:09, 3722.24 examples/s]Generating train split:  26%|██▋       | 12556/47780 [00:03<00:08, 3977.47 examples/s]Generating train split:  28%|██▊       | 13556/47780 [00:03<00:08, 4156.89 examples/s]Generating train split:  32%|███▏      | 15334/47780 [00:04<00:08, 3729.59 examples/s]Generating train split:  34%|███▍      | 16334/47780 [00:04<00:07, 4099.50 examples/s]Generating train split:  36%|███▋      | 17334/47780 [00:04<00:07, 3891.62 examples/s]Generating train split:  38%|███▊      | 18334/47780 [00:04<00:06, 4588.07 examples/s]Generating train split:  42%|████▏     | 20112/47780 [00:05<00:06, 4078.05 examples/s]Generating train split:  44%|████▍     | 21112/47780 [00:05<00:06, 3872.34 examples/s]Generating train split:  46%|████▋     | 22112/47780 [00:06<00:07, 3489.94 examples/s]Generating train split:  48%|████▊     | 23112/47780 [00:06<00:05, 4116.88 examples/s]Generating train split:  52%|█████▏    | 24890/47780 [00:06<00:06, 3435.56 examples/s]Generating train split:  54%|█████▍    | 25890/47780 [00:07<00:06, 3317.16 examples/s]Generating train split:  56%|█████▋    | 26890/47780 [00:07<00:06, 3279.93 examples/s]Generating train split:  58%|█████▊    | 27890/47780 [00:07<00:05, 3870.58 examples/s]Generating train split:  62%|██████▏   | 29668/47780 [00:08<00:05, 3292.74 examples/s]Generating train split:  64%|██████▍   | 30668/47780 [00:08<00:04, 3692.76 examples/s]Generating train split:  66%|██████▋   | 31668/47780 [00:08<00:04, 3438.20 examples/s]Generating train split:  68%|██████▊   | 32668/47780 [00:08<00:03, 3902.76 examples/s]Generating train split:  72%|███████▏  | 34446/47780 [00:09<00:04, 3049.01 examples/s]Generating train split:  74%|███████▍  | 35446/47780 [00:10<00:03, 3135.77 examples/s]Generating train split:  76%|███████▋  | 36446/47780 [00:10<00:03, 3421.26 examples/s]Generating train split:  78%|███████▊  | 37446/47780 [00:10<00:02, 3784.07 examples/s]Generating train split:  82%|████████▏ | 39224/47780 [00:11<00:02, 3264.60 examples/s]Generating train split:  84%|████████▍ | 40224/47780 [00:11<00:02, 3245.07 examples/s]Generating train split:  86%|████████▋ | 41224/47780 [00:11<00:02, 3157.03 examples/s]Generating train split:  88%|████████▊ | 42224/47780 [00:11<00:01, 3563.89 examples/s]Generating train split:  92%|█████████▏| 44002/47780 [00:12<00:01, 3044.01 examples/s]Generating train split:  94%|█████████▍| 45002/47780 [00:12<00:00, 3092.42 examples/s]Generating train split:  96%|█████████▋| 46002/47780 [00:13<00:00, 2945.84 examples/s]Generating train split:  98%|█████████▊| 47002/47780 [00:13<00:00, 3518.46 examples/s]Generating train split: 100%|██████████| 47780/47780 [00:13<00:00, 3536.57 examples/s]
+Map:   0%|          | 0/47780 [00:00<?, ? examples/s]Map:   2%|▏         | 746/47780 [00:00<00:06, 7356.28 examples/s]Map:   4%|▎         | 1738/47780 [00:00<00:10, 4212.32 examples/s]Map:   5%|▍         | 2330/47780 [00:00<00:14, 3093.02 examples/s]Map:   6%|▋         | 2996/47780 [00:00<00:11, 3844.86 examples/s]Map:   8%|▊         | 3616/47780 [00:01<00:14, 3130.86 examples/s]Map:   9%|▉         | 4341/47780 [00:01<00:18, 2364.68 examples/s]Map:  10%|█         | 5000/47780 [00:01<00:17, 2460.32 examples/s]Map:  12%|█▏        | 5706/47780 [00:01<00:13, 3120.44 examples/s]Map:  13%|█▎        | 6318/47780 [00:02<00:14, 2948.63 examples/s]Map:  15%|█▍        | 6936/47780 [00:02<00:11, 3480.36 examples/s]Map:  16%|█▋        | 7875/47780 [00:02<00:11, 3516.34 examples/s]Map:  18%|█▊        | 8394/47780 [00:02<00:12, 3241.36 examples/s]Map:  19%|█▉        | 9000/47780 [00:02<00:11, 3326.85 examples/s]Map:  21%|██        | 9909/47780 [00:02<00:08, 4366.49 examples/s]Map:  23%|██▎       | 10827/47780 [00:03<00:08, 4152.46 examples/s]Map:  24%|██▍       | 11427/47780 [00:03<00:09, 3686.60 examples/s]Map:  25%|██▌       | 12000/47780 [00:03<00:09, 3668.40 examples/s]Map:  27%|██▋       | 12852/47780 [00:03<00:07, 4577.10 examples/s]Map:  28%|██▊       | 13464/47780 [00:03<00:08, 4273.10 examples/s]Map:  29%|██▉       | 14000/47780 [00:03<00:08, 3999.15 examples/s]Map:  31%|███       | 14880/47780 [00:04<00:06, 5000.43 examples/s]Map:  33%|███▎      | 15887/47780 [00:04<00:06, 4797.59 examples/s]Map:  35%|███▌      | 16840/47780 [00:04<00:06, 4617.88 examples/s]Map:  37%|███▋      | 17480/47780 [00:04<00:07, 4070.14 examples/s]Map:  38%|███▊      | 18000/47780 [00:04<00:07, 3894.54 examples/s]Map:  40%|███▉      | 18927/47780 [00:04<00:05, 4920.13 examples/s]Map:  42%|████▏     | 19917/47780 [00:05<00:06, 4616.22 examples/s]Map:  44%|████▎     | 20890/47780 [00:05<00:05, 4695.29 examples/s]Map:  45%|████▍     | 21449/47780 [00:05<00:05, 4407.41 examples/s]Map:  46%|████▌     | 22000/47780 [00:05<00:06, 4051.04 examples/s]Map:  48%|████▊     | 22879/47780 [00:05<00:05, 4978.15 examples/s]Map:  49%|████▉     | 23447/47780 [00:06<00:05, 4242.68 examples/s]Map:  50%|█████     | 24000/47780 [00:06<00:06, 3842.87 examples/s]Map:  52%|█████▏    | 24755/47780 [00:06<00:05, 4583.48 examples/s]Map:  53%|█████▎    | 25420/47780 [00:06<00:05, 3862.60 examples/s]Map:  54%|█████▍    | 26000/47780 [00:06<00:05, 3647.36 examples/s]Map:  56%|█████▌    | 26808/47780 [00:06<00:04, 4504.10 examples/s]Map:  57%|█████▋    | 27410/47780 [00:07<00:05, 3793.88 examples/s]Map:  59%|█████▊    | 28000/47780 [00:07<00:05, 3590.12 examples/s]Map:  60%|██████    | 28845/47780 [00:07<00:04, 4525.06 examples/s]Map:  62%|██████▏   | 29431/47780 [00:07<00:04, 3839.19 examples/s]Map:  63%|██████▎   | 30000/47780 [00:07<00:04, 3590.03 examples/s]Map:  65%|██████▍   | 30930/47780 [00:07<00:03, 4696.56 examples/s]Map:  67%|██████▋   | 31873/47780 [00:08<00:03, 4659.10 examples/s]Map:  68%|██████▊   | 32421/47780 [00:08<00:03, 4240.41 examples/s]Map:  69%|██████▉   | 33000/47780 [00:08<00:03, 3759.21 examples/s]Map:  71%|███████   | 33807/47780 [00:08<00:03, 4587.29 examples/s]Map:  72%|███████▏  | 34411/47780 [00:08<00:03, 4006.48 examples/s]Map:  73%|███████▎  | 35000/47780 [00:08<00:03, 3579.15 examples/s]Map:  75%|███████▌  | 35859/47780 [00:09<00:02, 4529.03 examples/s]Map:  76%|███████▋  | 36440/47780 [00:09<00:03, 3756.11 examples/s]Map:  77%|███████▋  | 37000/47780 [00:09<00:02, 3705.01 examples/s]Map:  79%|███████▉  | 37892/47780 [00:09<00:02, 4739.97 examples/s]Map:  81%|████████  | 38820/47780 [00:09<00:01, 4542.93 examples/s]Map:  83%|████████▎ | 39465/47780 [00:09<00:02, 3941.03 examples/s]Map:  84%|████████▎ | 40000/47780 [00:10<00:02, 3556.07 examples/s]Map:  86%|████████▌ | 40914/47780 [00:10<00:01, 4579.50 examples/s]Map:  88%|████████▊ | 41819/47780 [00:10<00:01, 4250.75 examples/s]Map:  89%|████████▉ | 42440/47780 [00:10<00:01, 3754.23 examples/s]Map:  90%|████████▉ | 43000/47780 [00:10<00:01, 3464.97 examples/s]Map:  92%|█████████▏| 43924/47780 [00:11<00:00, 4489.08 examples/s]Map:  93%|█████████▎| 44473/47780 [00:11<00:00, 4088.10 examples/s]Map:  94%|█████████▍| 45000/47780 [00:11<00:00, 3683.38 examples/s]Map:  96%|█████████▌| 45810/47780 [00:11<00:00, 4549.80 examples/s]Map:  98%|█████████▊| 46705/47780 [00:11<00:00, 3974.32 examples/s]Map:  99%|█████████▉| 47535/47780 [00:12<00:00, 3565.96 examples/s]Map: 100%|██████████| 47780/47780 [00:12<00:00, 3923.81 examples/s]
+[WARNING|<string>:173] 2025-04-20 16:24:56,506 >> ==((====))==  Unsloth - 2x faster free finetuning | Num GPUs used = 1
+   \\   /|    Num examples = 47,780 | Num Epochs = 1 | Total steps = 250
+O^O/ \_/ \    Batch size per device = 6 | Gradient accumulation steps = 1
+\        /    Data Parallel GPUs = 1 | Total batch size (6 x 1 x 1) = 6
+ "-____-"     Trainable parameters = 36,929,536/5,000,000,000 (0.74% trained)
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Currently logged in as: alejandro-paredeslatorre to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+[{'content': '\n    Respond in the following format:\n    <think>\n    ...\n    </think>\n    <answer>\n    ...\n    </answer>\n    ', 'role': 'system'}, {'content': 'You will be given a competitive programming problem. Please reason step by step about the solution, then provide a complete implementation in C++17.\n\nYour solution must read input from standard input (cin), write output to standard output (cout).\nDo not include any debug prints or additional output.\n\nPut your final solution within a single code block:\n```cpp\n<your code here>\n```\n\n# Problem\n\nYou are given an array $$$a$$$ of $$$n$$$ integers, where $$$n$$$ is odd.\n\nIn one operation, you will remove two adjacent elements from the array $$$a$$$, and then concatenate the remaining parts of the array. For example, given the array $$$[4,7,4,2,9]$$$, we can obtain the arrays $$$[4,2,9]$$$ and $$$[4,7,9]$$$ by the operations $$$[\\underline{4,7}, 4,2,9] \\to [4,2,9]$$$ and $$$[4,7,\\underline{4,2},9] \\to [4,7,9]$$$ respectively. However, we cannot obtain the array $$$[7,2,9]$$$ as it requires deleting non-adjacent elements $$$[\\underline{4},7,\\underline{4},2,9]$$$.\n\nYou will repeatedly perform this operation until exact', 'role': 'user'}]
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> a[i];
+        }
+        int max_val = a[0];
+        for (int i = 2; i < n; i += 2) {
+            if (a[i] > max_val) {
+                max_val = a[i];
+            }
+        }
+        cout << max_val << '\n';
+    }
+    return 0;
+}
+```
+Sun Apr 20 16:24:55 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A5000               Off |   00000000:17:00.0 Off |                  Off |
+| 30%   21C    P8             16W /  230W |   14351MiB /  24564MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A   2463496      C   python                                      14330MiB |
++-----------------------------------------------------------------------------------------+
+
+wandb: ERROR failed to upsert bucket: returned error 403: {"data":{"upsertBucket":null},"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}]}
+Traceback (most recent call last):
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 236, in <module>
+    main()
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 188, in main
+    trainer.train()
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+    return inner_training_loop(
+  File "<string>", line 223, in _fast_inner_training_loop
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/trainer_callback.py", line 506, in on_train_begin
+    return self.call_event("on_train_begin", args, state, control)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/trainer_callback.py", line 556, in call_event
+    result = getattr(callback, event)(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 930, in on_train_begin
+    self.setup(args, state, model, **kwargs)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 857, in setup
+    self._wandb.init(
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1544, in init
+    wandb._sentry.reraise(e)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 156, in reraise
+    raise exc.with_traceback(sys.exc_info()[2])
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1530, in init
+    return wi.init(run_settings, run_config)
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 987, in init
+    raise error
+wandb.errors.errors.CommError: failed to upsert bucket: returned error 403: {"data":{"upsertBucket":null},"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}]}
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 236, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 188, in main
+[rank0]:     trainer.train()
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/trainer.py", line 2245, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "<string>", line 223, in _fast_inner_training_loop
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/trainer_callback.py", line 506, in on_train_begin
+[rank0]:     return self.call_event("on_train_begin", args, state, control)
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/trainer_callback.py", line 556, in call_event
+[rank0]:     result = getattr(callback, event)(
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 930, in on_train_begin
+[rank0]:     self.setup(args, state, model, **kwargs)
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 857, in setup
+[rank0]:     self._wandb.init(
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1544, in init
+[rank0]:     wandb._sentry.reraise(e)
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 156, in reraise
+[rank0]:     raise exc.with_traceback(sys.exc_info()[2])
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1530, in init
+[rank0]:     return wi.init(run_settings, run_config)
+[rank0]:   File "/home/users/ap794/final_project_distillLLM/aleGRPO/grpo_venv/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 987, in init
+[rank0]:     raise error
+[rank0]: wandb.errors.errors.CommError: failed to upsert bucket: returned error 403: {"data":{"upsertBucket":null},"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}]}
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33moutputs[0m at: [34mhttps://wandb.ai/alejandro-paredeslatorre/qwen-cot-training/runs/82oh4fux[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250420_162457-82oh4fux/logs[0m
+[rank0]:[W420 16:25:00.557612253 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+srun: error: compsci-cluster-fitz-14: task 0: Exited with exit code 1

@@ -1,0 +1,5 @@
+  File "/home/users/ap794/final_project_distillLLM/aleGRPO/src/main.py", line 115
+    model_name = "nvidia/Llama-3.1-Nemotron-Nano-8B-v1"
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+srun: error: compsci-cluster-fitz-05: task 0: Exited with exit code 1
